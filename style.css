@@ -1,0 +1,31 @@
+body {
+  font-family: 'Georgia', serif;
+  background: #fdf6e3;
+  text-align: center;
+  padding: 50px;
+}
+
+h1 {
+  color: #6c4f3d;
+}
+
+#poema {
+  margin-top: 30px;
+  font-size: 1.2em;
+  color: #333;
+  white-space: pre-line;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #d9a066;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #b87c3b;
+}
