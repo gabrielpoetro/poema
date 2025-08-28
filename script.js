@@ -1,43 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const versos1 = [
-    "No silêncio da noite,",
-    "Sob o céu de estrelas,",
-    "Entre sombras e luz,",
-    "Na dança do tempo,",
-    "Quando o vento sussurra,"
+  const sujeitos = [
+    "A lua", "O tempo", "A memória", "O silêncio", "A saudade",
+    "O vento", "A noite", "O olhar", "A esperança", "O vazio"
   ];
 
-  const versos2 = [
-    "flores nascem sem pedir.",
-    "o coração se revela.",
-    "os sonhos ganham asas.",
-    "a alma se despede.",
-    "o mistério se aprofunda."
+  const verbos = [
+    "dança", "sussurra", "desvenda", "abraça", "desaparece",
+    "renasce", "caminha", "se esconde", "se revela", "flutua"
   ];
 
-  const versos3 = [
-    "E tudo é poesia.",
-    "Mesmo sem palavras.",
-    "Como se o mundo respirasse.",
-    "Num instante eterno.",
-    "Feito de silêncio e cor."
+  const complementos = [
+    "na pele da noite", "entre folhas caídas", "no olhar perdido",
+    "sob o véu do vento", "em ecos distantes", "na curva do tempo",
+    "entre sonhos esquecidos", "no silêncio profundo", "na luz que resta",
+    "em sombras delicadas"
   ];
 
-  const botao = document.getElementById("gerarPoema");
+  const finais = [
+    "E tudo faz sentido.", "Mesmo sem razão.", "Como se fosse eterno.",
+    "Num instante suspenso.", "Feito de ausência e cor.",
+    "E o mundo respira poesia.", "Como se o tempo parasse.",
+    "E o coração entendesse.", "Como se fosse ontem.", "E tudo fosse agora."
+  ];
+
   const poemaDiv = document.getElementById("poema");
 
-  botao.addEventListener("click", function () {
-    const v1 = versos1[Math.floor(Math.random() * versos1.length)];
-    const v2 = versos2[Math.floor(Math.random() * versos2.length)];
-    const v3 = versos3[Math.floor(Math.random() * versos3.length)];
+  function gerarPoema() {
+    const verso1 = `${sujeitos[Math.floor(Math.random() * sujeitos.length)]} ${verbos[Math.floor(Math.random() * verbos.length)]} ${complementos[Math.floor(Math.random() * complementos.length)]}.`;
+    const verso2 = finais[Math.floor(Math.random() * finais.length)];
 
-    const poema = `${v1}\n${v2}\n${v3}`;
+    const poema = `${verso1}\n${verso2}`;
     poemaDiv.classList.remove("mostrar");
     poemaDiv.innerText = poema;
 
-    // Força a transição
     setTimeout(() => {
       poemaDiv.classList.add("mostrar");
     }, 50);
-  });
+  }
+
+  // Gera novo poema a cada clique
+  const botao = document.getElementById("gerarPoema");
+  botao.addEventListener("click", gerarPoema);
 });
